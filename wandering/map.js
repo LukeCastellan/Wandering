@@ -16,7 +16,7 @@ Map.prototype.stringify = function() {
     for (var a = 0; a < this.height; a = a + 1) {
 
         for (var b = 0; b < this.width; b = b + 1) {
-            stringified_map = stringified_map + this.get_tile(b, a);
+            stringified_map = stringified_map + this.get_tile(a, b);
         }
 
         stringified_map = stringified_map + "\n";
