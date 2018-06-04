@@ -8,3 +8,8 @@ To-do list:
 - [ ] Plan some more
 - [ ] Iron all the bugs out
 - [ ] 10 GOTO 9
+
+##License
+
+Wandering is available under the MIT license. For more information, see
+the LICENSE.md file.
