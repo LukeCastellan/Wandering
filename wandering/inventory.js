@@ -5,22 +5,27 @@ var Inventory = {
         this.items.push(item);
     },
     
-    remove_item: function(index) {
-        
-    },
-    
-    find_item: function(item) {
-        return indexOf(item);
+    remove_item: function(item) {
+        return items.removeElement(item);
     },
 };
 
-Array.prototype.remove = function(element) {
-    if (this.indexOf(element) == -1) {
+//finds and removes an element of the array, and returns it
+Array.prototype.removeElement = function(element) {
+    return this.remove(i); //remove the first element, which is the element to be removed
+};
+
+Array.prototype.remove = function(index) {
+    var i = this.indexOf(element);
+    
+    if (i == -1) {
+        //it's all in the error message!
         throw new Error("what you're trying to remove isn't in this array in the first place!");
     }
     
-    //finish
-};
+    this.swapElements(i, 0);
+    return this.shift();
+}
 
 //I'm using pascalCase here, to make it clear that it's now part of Array.prototype,
 //something already part of the default Javascript library
