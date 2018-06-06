@@ -9,6 +9,10 @@ function Map(string, width, height) {
     }
 }
 
+Map.prototype.map = [];
+Map.prototype.width = 0;
+Map.prototype.height = 0;
+
 //returns a printable string of the map, complete with \n characters
 Map.prototype.stringify = function() {
     var stringified_map = "";
@@ -16,7 +20,7 @@ Map.prototype.stringify = function() {
     for (var a = 0; a < this.height; a = a + 1) {
 
         for (var b = 0; b < this.width; b = b + 1) {
-            stringified_map = stringified_map + this.get_tile(a, b);
+            stringified_map = stringified_map + this.get_tile(b, a);
         }
 
         stringified_map = stringified_map + "\n";
@@ -27,7 +31,7 @@ Map.prototype.stringify = function() {
 
 //give it a pair of co-ordinates, and it'll give you where to find that tile in the array
 Map.prototype.get_tile_pos = function(width, height) {
-    return width + height + this.width;
+    return width + height * this.width;
 }
 
 //returns a tile from the map
