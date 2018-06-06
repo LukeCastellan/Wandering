@@ -7,13 +7,13 @@ var Engine = {
         }
     },
 
-    generateSaveCode: function(game) {
+    generate_save_code: function(game) {
         return btoa(JSON.stringify(game));
     },
 
-    loadSaveCode: function(saveCode) {
+    load_save_code: function(save_code) {
         try {
-            return JSON.parse(atob(saveCode));
+            return JSON.parse(atob(save_code));
         } catch (err) {
             return null;
         }
