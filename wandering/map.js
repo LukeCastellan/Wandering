@@ -9,10 +9,6 @@ function Map(string, width, height) {
     }
 }
 
-Map.prototype.map = [];
-Map.prototype.width = 0;
-Map.prototype.height = 0;
-
 //returns a printable string of the map, complete with \n characters
 Map.prototype.stringify = function() {
     var stringified_map = "";
@@ -43,5 +39,5 @@ Map.prototype.get_tile = function(width, height) {
 //sets a tile in the map. permanently.
 Map.prototype.set_tile = function(width, height, new_tile) {
     var tile_pos = this.get_tile_pos(width, height);
-    this.map[tile_pos] = new_tile;
+    this.map_array[tile_pos] = new_tile;
 }
