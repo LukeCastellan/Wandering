@@ -1,5 +1,7 @@
 function Map(string, width, height) {
 
+    string = string.split("\n").join(""); //removes line breaks
+    
     if (string.length == width * height) {
         this.map_array = string.split("");
         this.width = width;
