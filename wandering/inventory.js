@@ -6,7 +6,11 @@ var Inventory = {
     },
     
     remove_item: function(item) {
-        return items.removeElement(item);
+        return this.items.removeElement(item);
+    },
+    
+    set_inventory: function(items) {
+        this.items = items;
     },
 };
 
