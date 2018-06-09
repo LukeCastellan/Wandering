@@ -11,6 +11,10 @@ function Map(string, width, height) {
     }
 
     this.special_tiles = []; //for special tiles
+
+    for (var i = 0; i < width * height; i = i + 1) {
+        this.special_tiles[i] = null; //start out with no special tiles, for now.
+    }
 }
 
 //returns a printable string of the map, complete with \n characters
@@ -46,6 +50,17 @@ Map.prototype.set_tile = function(width, height, new_tile) {
     this.map_array[tile_pos] = new_tile;
 }
 
-Map.prototype.set_special_tile = function(width, height, special_tile) {
-    this.special_tiles.push(special_tile);
+Map.prototype.set_special_tile = function(width, height, new_special_tile) {
+    var special_tile_pos = this.get_tile_pos(width, height);
+    this.special_tiles[special_tile_pos] = new_special_tile;
+}
+
+Map.prototype.get_special_tile = function(width, height) {
+    var special_tile_pos = this.get_tile_pos(width, height);
+    return this.special_tiles[special_tile_pos];
+}
+
+Map.prototype.remove_special_tile = function(width, height) {
+    var special_tile_pos = this.get_tile_pos(width, height);
+    this.special_tiles[special_tile_pos] = null; //set it to null
 }
