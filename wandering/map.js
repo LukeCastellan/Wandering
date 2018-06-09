@@ -9,6 +9,8 @@ function Map(string, width, height) {
     } else {
         throw new Error("map size doesn't match the string length");
     }
+
+    this.special_tiles = []; //for special tiles
 }
 
 //returns a printable string of the map, complete with \n characters
@@ -42,4 +44,8 @@ Map.prototype.get_tile = function(width, height) {
 Map.prototype.set_tile = function(width, height, new_tile) {
     var tile_pos = this.get_tile_pos(width, height);
     this.map_array[tile_pos] = new_tile;
+}
+
+Map.prototype.set_special_tile = function(width, height, special_tile) {
+    this.special_tiles.push(special_tile);
 }
