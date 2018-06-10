@@ -1,5 +1,7 @@
 # Wandering
 
+> Where am I? How did I get here?
+
 To-do list:
 - [x] What do we want to do anyway?
 - [ ] Build a web engine
@@ -11,5 +13,8 @@ To-do list:
 
 ## License
 
-Wandering is available under the MIT license. For more information, see
-the LICENSE.md file.
+Wandering is available under the MIT license. For more information, see [LICENSE.md] (https://github.com/LukeCastellan/Wandering/blob/master/LICENSE).
+
+## Documentation
+
+For documentation, please see the (wiki)[https://github.com/LukeCastellan/Wandering/wiki].
