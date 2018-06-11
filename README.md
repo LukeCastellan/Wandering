@@ -13,8 +13,8 @@ To-do list:
 
 ## License
 
-Wandering is available under the MIT license. For more information, see [LICENSE.md] (https://github.com/LukeCastellan/Wandering/blob/master/LICENSE).
+Wandering is available under the MIT license. For more information, see LICENSE.md.
 
 ## Documentation
 
-For documentation, please see the (wiki)[https://github.com/LukeCastellan/Wandering/wiki].
+For documentation, please see the [wiki](https://github.com/LukeCastellan/Wandering/wiki).
