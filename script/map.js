@@ -64,3 +64,17 @@ Map.prototype.remove_special_tile = function(width, height) {
     var special_tile_pos = this.get_tile_pos(width, height);
     this.special_tiles[special_tile_pos] = null; //set it to null
 }
+
+
+//the special tile class, as a template for special tiles
+function Special_tile(name, action) {
+    this.name = name;
+    
+    if (action == undefined) {
+        this.action = this.no_action;
+    }
+}
+
+Special_tile.prototype.no_action = function() {
+    //do nothing
+}
