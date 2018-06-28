@@ -11,9 +11,11 @@ function Map(string, width, height) {
     }
 
     this.special_tiles = []; //for special tiles
+    this.map_objects = [];
 
     for (var i = 0; i < width * height; i = i + 1) {
         this.special_tiles[i] = null; //start out with no special tiles, for now.
+        this.map_objects[i] = null; //start out with no objects on the map
     }
 }
 
@@ -65,8 +67,24 @@ Map.prototype.remove_special_tile = function(width, height) {
     this.special_tiles[special_tile_pos] = null; //set it to null
 };
 
+Map.prototype.set_map_object = function(width, height, new_map_object) {
+    var map_object_pos = this.get_tile_pos(width, height);
+    this.map_objects[map_object_pos] = new_map_object;
+};
 
-//the special tile class, as a template for special tiles
+Map.prototype.get_map_object = function(width, height) {
+    var map_object_pos = this.get_tile_pos(width, height);
+    return this.map_objects[map_object_pos];
+};
+
+Map.prototype.remove_map_object = function(width, height) {
+    var map_object_pos = this.get_tile_pos(width, height);
+    this.map_objects[map_object_pos] = null; //set it to null
+};
+
+
+
+//the special tile object, as a template for special tiles
 function Special_tile(name, action) {
     this.name = name;
     
