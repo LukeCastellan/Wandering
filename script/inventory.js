@@ -1,3 +1,4 @@
+//this has to be updated
 var Inventory = {
     items: [],
     
