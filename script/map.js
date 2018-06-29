@@ -35,6 +35,16 @@ Map.prototype.stringify = function() {
     return stringified_map;
 };
 
+//gets the distance between two points; doesn't matter which point is first
+Map.prototype.get_euclidean_distance = function(x1, y1, x2, y2) {
+    return Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2)); //pythagoras is my friend, yo!
+};
+
+//gets the distance between two points, taxicab style
+Map.prototype.get_taxicab_distance = function(x1, y1, x2, y2) {
+    return Math.abs(x1 - x2) + Math.abs(y1 - y2);
+}
+
 //give it a pair of co-ordinates, and it'll give you where to find that tile in the array
 Map.prototype.get_tile_pos = function(width, height) {
     return width + height * this.width;

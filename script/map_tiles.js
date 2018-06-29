@@ -1,16 +1,30 @@
-var MAP_TILES = {
+var MAP_TILES = { //subject to change!
+    BLANK: " ",
     PLAYER: "§",
-    FARM: "ƒ",
-    OUTPOST: "R",
+    FARM: "A",
+    OUTPOST: "#",
     PATH: "_",
     BRIDGE: "-",
 
     SPECIAL: "X", //to catch the player's attention. IMMEDIATELY!!!!!!!
+    MYSTERY: "?", //in case you need it
 
     //various types of terrain
-    FOREST: "T",
-    MARSH: "m", //fill that in later
+    FOREST: "Y",
+    MARSH: "w", //fill that in later
     WATER: "~",
     MOUNTAINS: "^",
-    PLAINS: "w",
+    MOUNTAINS_LEFT: "/",
+    MOUNTAINS_RIGHT: "\\", //I needed an escape sequence
+    PLAINS: ".",
+
+    //city and town tiles
+    STREET: "#",
+    SHOP: "S",
+    HOUSE: "H",
+    TRANSPORT_STATION: "T",
+    CENTRAL_HALL: "C",
+    CHURCH: "U", //soething will happen here
+    CITY: "M", //city on the big map
+    TOWN: "N", //town on the big map
 };
