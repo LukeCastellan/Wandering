@@ -10,8 +10,8 @@ var MAP_TILES = { //subject to change!
     MYSTERY: "?", //in case you need it
 
     //various types of terrain
-    FOREST: "Y",
-    MARSH: ",", //fill that in later
+    FOREST: ";",
+    MARSH: "m", //fill that in later
     WATER: "~",
     MOUNTAINS: "^",
     MOUNTAINS_LEFT: "/",
