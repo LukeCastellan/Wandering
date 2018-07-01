@@ -45,6 +45,23 @@ Map.prototype.get_taxicab_distance = function(x1, y1, x2, y2) {
     return Math.abs(x1 - x2) + Math.abs(y1 - y2);
 }
 
+//returns a map that is a portion of the original one
+Map.prototype.get_sub_map = function(x1, y1, x2, y2) {
+    var sub_map_array = [];
+
+    //start at the top left corner, and make my way across and down
+    for (var i = y1; i <= y2; i = i + 1) {
+        for (var j = x1; j <= x2; j = j + 1) {
+            sub_map_array.push(this.get_tile(j, i));
+        }
+    }
+
+    var sub_map_width = x2 - x1 + 1;
+    var sub_map_height = y2 - y1 + 1;
+
+    return new Map((sub_map_array.join("")), sub_map_width, sub_map_height);
+}
+
 //give it a pair of co-ordinates, and it'll give you where to find that tile in the array
 Map.prototype.get_tile_pos = function(width, height) {
     return width + height * this.width;
