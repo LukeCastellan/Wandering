@@ -11,7 +11,7 @@ var MAP_TILES = { //subject to change!
 
     //various types of terrain
     FOREST: "Y",
-    MARSH: "w", //fill that in later
+    MARSH: ",", //fill that in later
     WATER: "~",
     MOUNTAINS: "^",
     MOUNTAINS_LEFT: "/",
