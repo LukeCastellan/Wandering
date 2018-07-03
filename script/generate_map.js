@@ -10,6 +10,8 @@ function generate_natural_map(width, height) {
         height = 75; //default value for height is 75
     }
 
+    Engine.log("generating a " + width + " by " + height + " natural map...");
+
     //create a string
     var string = "";
     for (var i = 0; i < height * width; i = i + 1) {
@@ -83,7 +85,7 @@ function generate_natural_map(width, height) {
                 current_y = current_y + 1;
             }
 
-            Engine.log("finished generating area with terrain type '" + terrain_type + "'.");
+            //Engine.log("finished generating area with terrain type '" + terrain_type + "'.");
         })(); //I'm using an IIFE here just to spite you, ha ha
 
         num_of_areas = num_of_areas - 1; //one area down!
@@ -98,7 +100,7 @@ function generate_natural_map(width, height) {
         var next_points = [];
 
         while (point.x < width && point.y > -1 && point.y < height) {
-            Engine.log("setting (" + point.x + ", " + point.y + ") as RIVER.");
+            //Engine.log("setting (" + point.x + ", " + point.y + ") as RIVER.");
             map.set_tile(point.x, point.y, MAP_TILES.WATER);
 
             new_points = search_points(point.x, point.y, width, height).filter(function(new_point) {

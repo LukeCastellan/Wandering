@@ -13,6 +13,9 @@ function Map(string, width, height) {
     this.special_tiles = []; //for special tiles
     this.map_objects = [];
 
+    this.player_x = null;
+    this.player_y = null;
+
     for (var i = 0; i < width * height; i = i + 1) {
         this.special_tiles[i] = null; //start out with no special tiles, for now.
         this.map_objects[i] = null; //start out with no objects on the map
@@ -26,7 +29,11 @@ Map.prototype.stringify = function() {
     for (var a = 0; a < this.height; a = a + 1) {
 
         for (var b = 0; b < this.width; b = b + 1) {
-            stringified_map = stringified_map + this.get_tile(b, a);
+            if (b == this.player_x && a == this.player_y) {
+                stringified_map = stringified_map + MAP_TILES.PLAYER;
+            } else {
+                stringified_map = stringified_map + this.get_tile(b, a);
+            }
         }
 
         stringified_map = stringified_map + "\n";
@@ -109,6 +116,26 @@ Map.prototype.remove_map_object = function(width, height) {
     this.map_objects[map_object_pos] = null; //set it to null
 };
 
+Map.prototype.place_player = function(x, y) {
+    this.player_x = x;
+    this.player_y = y;
+}
+
+Map.prototype.move_up = function() {
+    this.player_y = this.player_y - 1;
+}
+
+Map.prototype.move_down = function() {
+    this.player_y = this.player_y + 1;
+}
+
+Map.prototype.move_left = function() {
+    this.player_x = this.player_x - 1;
+}
+
+Map.prototype.move_right = function() {
+    this.player_x = this.player_x + 1;
+}
 
 
 //the special tile object, as a template for special tiles
