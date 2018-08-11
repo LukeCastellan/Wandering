@@ -15,7 +15,7 @@ function generate_natural_map(width, height) {
     //create a string
     var string = "";
     for (var i = 0; i < height * width; i = i + 1) {
-        string = string + MAP_TILES.PLAINS; //for the natural map, I start with all plains. It's a plain map, after all (puns!)
+        string = string + MAP_TILES.PLAINS + ","; //for the natural map, I start with all plains. It's a plain map, after all (puns!)
     }
 
     var map = new Map(string, width, height); //make the map!
@@ -102,6 +102,9 @@ function generate_natural_map(width, height) {
         while (point.x < width && point.y > -1 && point.y < height) {
             //Engine.log("setting (" + point.x + ", " + point.y + ") as RIVER.");
             map.set_tile(point.x, point.y, MAP_TILES.WATER);
+            if (point.y < height - 1) {
+                map.set_tile(point.x, point.y + 1, MAP_TILES.WATER);
+            }
 
             new_points = search_points(point.x, point.y, width, height).filter(function(new_point) {
                 if (new_point.x > point.x) {
@@ -118,6 +121,59 @@ function generate_natural_map(width, height) {
 
     return map;
 }
+
+/*
+function generate_city_map(width, height) {
+    //do the checks first!
+    if (isNaN(width)) {
+        width = 75;
+    }
+
+    if (isNaN(height)) {
+        height = 75;
+    }
+
+    if (width < 5 || height < 5) {
+        throw new Error("map size too small. width and height have to be at least 15 properly generate a city map.");
+    }
+
+    Engine.log("generating a " + width + " by " + height + " city map...");
+
+    var string = "";
+    for (var i = 0; i < height * width; i = i + 1) {
+        string = string + MAP_TILES.BLANK;
+    }
+
+    var city_map = new Map(string, width, height); //generate a blank map
+
+    //manipulate the map
+    var num_of_vertical_streets = Math.floor(width / 5);
+    var road = 5;
+    while (num_of_vertical_streets > 0 && road > width - 2) {
+        (function() {
+            for (var r = 0; r < height; r = r + 1) {
+                city_map.set_tile(road, r, MAP_TILES.STREET);
+            }
+        })();
+        num_of_vertical_streets = num_of_vertical_streets - 1;
+        road = road + 5;
+    }
+
+    var num_of_horizontal_streets = Math.floor(height / 5);
+    var avenue = 5;
+    while (num_of_horizontal_streets > 0 && avenue < ) {
+        (function() {
+            for (var a = 0; a < width; a = a + 1) {
+                city_map.set_tile(avenue, a, MAP_TILES.STREET);
+            }
+        })();
+        num_of_horizontal_streets = num_of_horizontal_streets - 1;
+        avenue = avenue + 5;
+    }
+
+    return city_map;
+}
+*/
 
 
 //HELPER FUNCTIONS: BLAME THESE GUYS WHEN SOMETHING GOES WRONG

@@ -2,13 +2,9 @@ function Map(string, width, height) {
 
     string = string.split("\n").join(""); //removes line breaks
     
-    if (string.length == width * height) {
-        this.map_array = string.split("");
-        this.width = width;
-        this.height = height;
-    } else {
-        throw new Error("map size doesn't match the string length");
-    }
+    this.map_array = string.split(",");
+    this.width = width;
+    this.height = height;
 
     this.special_tiles = []; //for special tiles
     this.map_objects = [];
