@@ -16,10 +16,16 @@ div#notifications {
 
 div.message {
 	/* for each individual message in the notifications panel */
+	display: block;
 }
 
 div#map_panel {
 	/* for the map. will directly affect how the map looks */
+	font-family: "Courier New", monospace;
+	font-size: 11pt;
+	line-height: 10px;
+	letter-spacing: 1px;
+	color: #999999;
 }
 
 div#inventory {
@@ -28,6 +34,7 @@ div#inventory {
 
 div.inventory_item {
 	/* for each individual item */
+	display: inline-block;
 }
 
 /* anything I missed? */
