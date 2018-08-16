@@ -1,7 +1,7 @@
 function Map(string, width, height) {
 
     string = string.split("\n").join(""); //removes line breaks
-    
+
     this.map_array = string.split(",");
     this.width = width;
     this.height = height;
@@ -11,6 +11,7 @@ function Map(string, width, height) {
 
     this.player_x = null;
     this.player_y = null;
+    this.player_orientation = null;
 
     for (var i = 0; i < width * height; i = i + 1) {
         this.special_tiles[i] = null; //start out with no special tiles, for now.
@@ -112,32 +113,76 @@ Map.prototype.remove_map_object = function(width, height) {
     this.map_objects[map_object_pos] = null; //set it to null
 };
 
-Map.prototype.place_player = function(x, y) {
+Map.prototype.place_player = function(x, y, orientation) {
     this.player_x = x;
     this.player_y = y;
+
+    Engine.log("player placed at (" + x + ", " + y + ").");
+
+    if (orientation) {
+        this.player_orientation = orientation;
+
+        Engine.log("player oriented to " + orientation + ".");
+    }
 }
 
 Map.prototype.move_up = function() {
     this.player_y = this.player_y - 1;
+
+    this.player_orientation = 'up';
+
+    if (this.get_special_tile(player_x, player_y)) {
+        this.get_special_tile(player_x, player_y).action();
+    }
 }
 
 Map.prototype.move_down = function() {
     this.player_y = this.player_y + 1;
+
+    this.player_orientation = 'down';
+
+    if (this.get_special_tile(player_x, player_y)) {
+        this.get_special_tile(player_x, player_y).action();
+    }
 }
 
 Map.prototype.move_left = function() {
     this.player_x = this.player_x - 1;
+
+    this.player_orientation = 'left';
+
+    if (this.get_special_tile(player_x, player_y)) {
+        this.get_special_tile(player_x, player_y).action();
+    }
 }
 
 Map.prototype.move_right = function() {
     this.player_x = this.player_x + 1;
+
+    this.player_orientation = 'right';
+
+    if (this.get_special_tile(player_x, player_y)) {
+        this.get_special_tile(player_x, player_y).action();
+    }
 }
 
+Map.prototype.build = function(tile) {
+    var build_x = this.player_x + (this.orientation == 'left' ? -1 : (this.orientation == 'right' ? 1 : 0));
+    var build_y = this.player_y + (this.orientation == 'up' ? -1 : (this.orientation == 'down' ? 1 : 0));
+
+    if ((build_x < 0 || build_x > this.width) || (build_y < 0 || build_y > this.height)) {
+        console.warn("ignoring attempt to build something facing " + this.orientation + "ward from (" + this.player_x + ", " + this.player_y + ").");
+
+        return;
+    } else {
+        this.set_tile(build_x, build_y, tile);
+    }
+}
 
 //the special tile object, as a template for special tiles
 function Special_tile(name, action) {
     this.name = name;
-    
+
     if (action == undefined) {
         this.action = this.no_action;
     }
