@@ -1,3 +1,8 @@
+/*
+ * !! WARNING -- OUTDATED AND DEPRECATED !!
+ * 
+ */
+
 //for documentation, please see the wiki (under Inventory)
 function Item(name, count, type, weight) {
     this.name = name;

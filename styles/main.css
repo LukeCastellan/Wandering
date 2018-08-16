@@ -30,6 +30,7 @@ div#map_panel {
 
 div#inventory {
 	/* for the inventory itself */
+	overflow-y: scroll;
 }
 
 div.inventory_item {
