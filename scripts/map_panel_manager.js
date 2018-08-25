@@ -28,7 +28,7 @@ var map_panel_manager = {
                         return false;
                     }
                 })(rows[0].length - tiles.length - 1, rowsleft, tile)) {
-                    line.innerHTML += "<span style='color:black; font-weight: bold;'>" + tile + "</span>";
+                    line.innerHTML += "<span style='color:white; font-weight: bold;'>" + tile + "</span>";
                 } else {
                     line.innerHTML += tile;
                 }

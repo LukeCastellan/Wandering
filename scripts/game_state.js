@@ -5,13 +5,15 @@ var game_state_manager = {
     maps: {},  //holds the maps
     current_map: null,
     LIGHT_RADIUS: 2,
+    quests: {};
+    current_quest = null,
 
     init: function() {
 
     },
 
     add_map: function(new_map, name) {
-        this.maps[name] = new_maps;
+        this.maps[name] = new_map;
     },
 
     end_game: function(ending) {
@@ -24,27 +26,22 @@ var game_state_manager = {
         this.current_map = this.maps[name];
     },
 
+    add_quest: function(quest) {
+        this.quests[quest.name] = quest;
+        Engine.log("added quest '" + quest.name + "'...");
+    },
+
+    set_current_quest: function(name) {
+        Engine.log("setting current quest to '" + name + "...");
+        this.current_quest = name;
+    },
+
+    get_current_quest: function() {
+        return this.quests[current_quest];
+    },
+
     start_game: function() {
-        this.maps['prison mine map'] = generate_prison_mine_map(70, 70);
-        MPM.display_map(this.maps['prison mine map']);
-        this.set_current_map('prison mine map');
-
-        EH.enable_map(function() {
-            GSM.current_map.move_up();
-            MPM.display_map(GSM.current_map);
-        }, function() {
-            GSM.current_map.move_down();
-            MPM.display_map(GSM.current_map);
-        }, function() {
-            GSM.current_map.move_left();
-            MPM.display_map(GSM.current_map);
-        }, function() {
-            GSM.current_map.move_right();
-            MPM.display_map(GSM.current_map);
-        });
-
-        Engine.log("starting game...");
-        Engine.notify('prison mine.');
+        //finish
     },
 
     deactivate_map_handlers: function() {

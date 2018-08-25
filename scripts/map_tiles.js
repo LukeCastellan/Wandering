@@ -27,4 +27,12 @@ var MAP_TILES = { //subject to change!
     CHURCH: "U", //soething will happen here
     CITY: "M", //city on the big map
     TOWN: "N", //town on the big map
+
+    //furniture?
 };
+
+var SPECIAL_TILES = {
+    CRAFTING_BENCH: new Special_tile("crafting bench", function() {
+        //function for crafting scene
+    }),
+}

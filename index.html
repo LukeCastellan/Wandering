@@ -35,7 +35,19 @@
 			/* feel free to add custom panels. link them in this way if you want javascript to be able to use them. */
 			var inventory_panel = document.getElementById('inventory');
 			var map_panel = document.getElementById('map_panel');
-			var notifications = document.getElementById('notifications');
+			var message_panel = document.getElementById('notifications');
+
+            function random_number(start, end) {
+                var multiplier = Math.abs((start - end));
+                var adder = Math.min(start, end);
+
+                return Math.floor(Math.random() * multiplier + adder);
+            }
 		</script>
+        <script src="scripts/engine.js"></script>
+        <script src="scripts/generate_map.js"></script>
+        <script src="scripts/map.js"></script>
+        <script src="scripts/map_panel_manager.js"></script>
+        <script src="scripts/map_tiles.js"></script>
 	</body>
 </html>

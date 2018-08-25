@@ -179,6 +179,18 @@ Map.prototype.build = function(tile) {
     }
 }
 
+Map.prototype.interact = function() {
+    var inter_x = this.player_x + (this.orientation == 'left' ? -1 : (this.orientation == 'right' ? 1 : 0));
+    var inter_y = this.player_y + (this.orientation == 'up' ? -1 : (this.orientation == 'down' ? 1 : 0));
+
+    inter_x = Math.max(0, Math.min(inter_x, this.width));
+    inter_y = Math.max(0, Math.min(inter_y, this.height));
+
+    if (this.get_special_tile(inter_x, inter_y)) {
+        this.get_special_tile(inter_x, inter_y).action();
+    }
+}
+
 //the special tile object, as a template for special tiles
 function Special_tile(name, action) {
     this.name = name;

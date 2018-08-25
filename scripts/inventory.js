@@ -10,12 +10,14 @@ var Inventory = (function() {
                 items[name] += count;
 
                 //remove the element for the item if count reaches zero
-                panel.removeChild(document.getElementById('item_' + name));
-                delete items[name];
+                if (items[name] == 0) {
+                    panel.removeChild(document.getElementById('item_' + name));
+                    delete items[name];
+                }
 
             } else { //item isn't in inventory
                 items[name] = count;
-                
+
                 //create a new element for the new item
                 var class_att = document.createAttribute('class');
                 class_att.value = 'inventory_item';
@@ -66,6 +68,8 @@ var Inventory = (function() {
             items = {};
         },
 
-        get_item_obj
+        get_item_obj: function(name) {
+            return items_dictionary.lookup(name);
+        }
     };
 })();
