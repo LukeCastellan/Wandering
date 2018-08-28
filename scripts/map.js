@@ -203,3 +203,30 @@ function Special_tile(name, action) {
 Special_tile.prototype.no_action = function() {
     //do nothing
 };
+
+var collison_tile = new Special_tile('collision tile', (function() {
+    var m = GSM.current_map;
+    var get_direction = function(direction) {
+        switch (direction) {
+            case 'up':
+                return {x: 0, y: -1};
+                break;
+            case 'down':
+                return {x: 0, y: 1};
+                break;
+            case 'left':
+                return {x: -1, y: 0};
+                break;
+            case 'right':
+                return {x: 1, y: 0};
+                break;
+            default:
+                throw new Error('invalid direction. what the hell is wrong with you!?');
+        }
+    };
+
+    return function() {
+        m.player_x += get_direction(m.player_orientation).x;
+        m.player_y += get_direction(m.player_orientation).y;
+    }
+})());
