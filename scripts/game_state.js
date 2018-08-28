@@ -42,11 +42,11 @@ var game_state_manager = {
 
     start_game: function() {
         this.add_map(generate_natural_map(100, 100),'testing map');
-		MPM.display_map(this.maps['testing map']);
+
 		this.set_current_map('testing map');
 		this.current_map.place_player(10,10,'down');
+        MPM.display_map(this.maps['testing map']);
 		this.activate_map_handlers();
-		
     },
 
     deactivate_map_handlers: function() {

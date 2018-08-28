@@ -131,8 +131,8 @@ Map.prototype.move_up = function() {
 
     this.player_orientation = 'up';
 
-    if (this.get_special_tile(player_x, player_y)) {
-        this.get_special_tile(player_x, player_y).action();
+    if (this.get_special_tile(this.player_x, this.player_y)) {
+        this.get_special_tile(this.player_x, this.player_y).action();
     }
 }
 
@@ -141,8 +141,8 @@ Map.prototype.move_down = function() {
 
     this.player_orientation = 'down';
 
-    if (this.get_special_tile(player_x, player_y)) {
-        this.get_special_tile(player_x, player_y).action();
+    if (this.get_special_tile(this.player_x, this.player_y)) {
+        this.get_special_tile(this.player_x, this.player_y).action();
     }
 }
 
@@ -151,8 +151,8 @@ Map.prototype.move_left = function() {
 
     this.player_orientation = 'left';
 
-    if (this.get_special_tile(player_x, player_y)) {
-        this.get_special_tile(player_x, player_y).action();
+    if (this.get_special_tile(this.player_x, this.player_y)) {
+        this.get_special_tile(this.player_x, this.player_y).action();
     }
 }
 
@@ -161,8 +161,8 @@ Map.prototype.move_right = function() {
 
     this.player_orientation = 'right';
 
-    if (this.get_special_tile(player_x, player_y)) {
-        this.get_special_tile(player_x, player_y).action();
+    if (this.get_special_tile(this.player_x, this.player_y)) {
+        this.get_special_tile(this.player_x, this.player_y).action();
     }
 }
 
