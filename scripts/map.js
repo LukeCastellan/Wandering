@@ -63,7 +63,7 @@ Map.prototype.get_sub_map = function(x1, y1, x2, y2) {
     var sub_map_width = x2 - x1 + 1;
     var sub_map_height = y2 - y1 + 1;
 
-    return new Map((sub_map_array.join("")), sub_map_width, sub_map_height);
+    return new Map((sub_map_array.join(",")), sub_map_width, sub_map_height);
 }
 
 //give it a pair of co-ordinates, and it'll give you where to find that tile in the array

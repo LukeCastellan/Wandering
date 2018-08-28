@@ -27,6 +27,7 @@
 				<!-- edit in main.css to stylize the inventory panel itself -->
 				<!-- for inventory items, edit div.inventory_item -->
 			</div>
+			<canvas id="map_canvas" width="800" height="800"></canvas>
 		</div>
 
 		<script>
@@ -36,18 +37,31 @@
 			var inventory_panel = document.getElementById('inventory');
 			var map_panel = document.getElementById('map_panel');
 			var message_panel = document.getElementById('notifications');
-
+			var map_canvas = document.getElementById("map_canvas");
+			var context = map_canvas.getContext("2d");
+			
             function random_number(start, end) {
                 var multiplier = Math.abs((start - end));
                 var adder = Math.min(start, end);
 
                 return Math.floor(Math.random() * multiplier + adder);
             }
+			
+			function start_game()
+			{
+				
+			}
 		</script>
+		
+		<script src="scripts/character.js"></script>
         <script src="scripts/engine.js"></script>
+        <script src="scripts/event_handler.js"></script>
         <script src="scripts/generate_map.js"></script>
+        <script src="scripts/game_state.js"></script>
         <script src="scripts/map.js"></script>
         <script src="scripts/map_panel_manager.js"></script>
         <script src="scripts/map_tiles.js"></script>
+        <script src="scripts/scene_handler.js"></script>
+        <script src="scripts/scene_template.js"></script>
 	</body>
 </html>

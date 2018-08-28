@@ -5,8 +5,8 @@ var game_state_manager = {
     maps: {},  //holds the maps
     current_map: null,
     LIGHT_RADIUS: 2,
-    quests: {};
-    current_quest = null,
+    quests: {},
+    current_quest: null,
 
     init: function() {
 
@@ -41,7 +41,12 @@ var game_state_manager = {
     },
 
     start_game: function() {
-        //finish
+        this.add_map(generate_natural_map(100, 100),'testing map');
+		MPM.display_map(this.maps['testing map']);
+		this.set_current_map('testing map');
+		this.current_map.place_player(10,10,'down');
+		this.activate_map_handlers();
+		
     },
 
     deactivate_map_handlers: function() {
