@@ -1,0 +1,1 @@
+var testmap1 = new Map("field2_top_left,field2_top,field2_top_right,field2_bottom_left,field2_bottom,field2_bottom_right",3,2);
